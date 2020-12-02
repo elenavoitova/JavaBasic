@@ -1,5 +1,6 @@
 package hw02;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Controller {
@@ -14,34 +15,30 @@ public class Controller {
      * Generate 3-points ship randomly horizontally or vertically
      * Fill it with 1 number
      */
-    public static void generateShip(){
-        int vertical = 0;
-        int horizontal = 1;
+    public void generateShip(){
         Random random = new Random();
+        boolean direction = random.nextBoolean();
+        int point1 = random.nextInt(SIZE - 1);
+        int point2 = random.nextInt(SIZE - 2) + 1;
 
-        int direction = random.nextInt(2);
-        if(direction == horizontal){
-            int pointX = random.nextInt(SIZE - 1);
-            int middlePointY = random.nextInt(SIZE - 2) + 1;
-            for (int i = 0; i < SIZE; i++) {
-                if(i != pointX) continue;
-                for (int j = middlePointY - 1; j <= middlePointY + 1; j++) {
-                    shipOnField[i][j] = 1;
-                }
-            }
-        }
-        if (direction == vertical) {
-            int pointY = random.nextInt(SIZE - 1);
-            int middlePointX = random.nextInt(SIZE - 2) + 1;
-            for (int i = middlePointX - 1; i <= middlePointX + 1; i++) {
-                for (int j = 0; j < SIZE; j++) {
-                    if(j != pointY) continue;
-                    shipOnField[i][j] = 1;
-                }
-            }
-        }
+        this.locateShip(point1, point2, direction);
 
     }
+
+    private void locateShip(int p1, int p2, boolean isVertical) {
+        if (isVertical) {
+            shipOnField[p2][p1] = 1;
+            shipOnField[p2 - 1][p1] = 1;
+            shipOnField[p2 + 1][p1] = 1;
+        } else {
+            shipOnField[p1][p2] = 1;
+            shipOnField[p1][p2 - 1] = 1;
+            shipOnField[p1][p2 + 1] = 1;
+        }
+    }
+
+
+
 
     /**
      * Flag for the game end

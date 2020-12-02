@@ -6,7 +6,8 @@ public class Main {
     private static Scanner input;
     public static void main(String[] args) {
         input = new Scanner(System.in);
-        Controller.generateShip();
+        Controller control = new Controller();
+        control.generateShip();
         View gameField = new View();
         System.out.println("All set. Get ready to rumble!");
 
