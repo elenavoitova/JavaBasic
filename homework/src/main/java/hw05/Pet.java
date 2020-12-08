@@ -1,31 +1,33 @@
 package hw05;
 
+import hw05.enums.Species;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Pet {
-    private String species;
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
-    public static int trickLevelMax = 100;
-    public static int trickLevelMin = 0;
+    public static final int TRICK_LEVEL_MAX = 100;
+    public static final int TRICK_LEVEL_MIN = 0;
 
     public Pet() {
     }
 
-    public Pet(String species, String nickname) {
+    public Pet(Species species, String nickname) {
         this.species = species;
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+    public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
         this.habits = habits;
-        if(trickLevelMin < 0 || trickLevelMax > 100){
+        if(TRICK_LEVEL_MIN < 0 || TRICK_LEVEL_MAX > 100){
             System.out.println("trick level should be in range 0 - 100");
         } else {
             this.trickLevel = trickLevel;
@@ -45,18 +47,18 @@ public class Pet {
     }
 
     public void respond(){
-        System.out.println("Привет, хозяин. Я - " + this.nickname + ". Я соскучился!");
+        System.out.printf("Привет, хозяин. Я - %s. Я соскучился!%n", this.nickname);
     }
 
     public void foul(){
         System.out.println("Нужно хорошо замести следы...");
     }
 
-    public String getSpecies() {
+    public Species getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(Species species) {
         this.species = species;
     }
 
@@ -98,13 +100,7 @@ public class Pet {
 
     @Override
     public String toString() {
-        return "Pet{" +
-                "species='" + species + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits=" + Arrays.toString(habits) +
-                '}';
+        return String.format("%s{nickname='%s', age=%d can fly: %s' fur: %s'legs: %d', trickLevel=%d, habits=%s}", species.name(), nickname, age, species.isCanFly(), species.isHasFur(), species.getNumberOfLegs(), trickLevel, Arrays.toString(habits));
     }
 
     @Override
@@ -119,5 +115,11 @@ public class Pet {
     @Override
     public int hashCode() {
         return Objects.hash(species, nickname);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.printf("Object type %s has been removed by garbage collector%n", getClass());
     }
 }

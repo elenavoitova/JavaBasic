@@ -8,8 +8,8 @@ public class Pet {
     private int age;
     private int trickLevel;
     private String[] habits;
-    public static int trickLavelMax = 100;
-    public static int trickLavelMin = 0;
+    public static final int TRICK_LEVEL_MAX = 100;
+    public static final int TRICK_LEVEL_MIN = 0;
 
     public Pet() {
     }
@@ -20,7 +20,7 @@ public class Pet {
     }
 
     public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
-        if(trickLavelMin < 0 || trickLavelMax > 100){
+        if(TRICK_LEVEL_MIN < 0 || TRICK_LEVEL_MAX > 100){
             throw new IllegalArgumentException("trick level should be in range 0 - 100");
         }
         this.species = species;

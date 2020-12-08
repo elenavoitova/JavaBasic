@@ -1,5 +1,6 @@
 package hw05;
 
+import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -8,8 +9,8 @@ public class Family {
     private Human mother;
     private Human father;
     private Human[] children = new Human[0];
-    private Pet pet;
-    private byte countFamily = 2;
+    private Pet[] pet = new Pet[0];
+    private int countFamily = 2;
 
     public Family(Human mother, Human father) {
         this.mother = mother;
@@ -27,9 +28,7 @@ public class Family {
     }
 
     public void addChild(Human child) {
-        Human[] tempChildren = Arrays.copyOf(this.children, (this.children.length + 1));
-        tempChildren[this.children.length] = child;
-        this.children = tempChildren;
+        this.children = increaseHumanArr(this.children, child);
         child.setFamily(this);
         countFamily++;
     }
@@ -40,39 +39,47 @@ public class Family {
             return;
         }
 
-        Human[] temp = new Human[children.length - 1];
-        for (int i = 0, k = 0; i < children.length ; i++) {
-            if(children[i].equals(child)){
-                System.out.println("Goodbye " + child.getName());
-                child.setFamily(null);
-                countFamily--;
-            } else{
-                temp[k++] = children[i];
-            }
+        this.children = decreaseHumanArr(this.children, child);
+        System.out.println("Goodbye " + child.getName());
+        child.setFamily(null);
+        countFamily--;
+    }
+
+    public void deleteChild(int index) {
+        System.out.println("index" + index);
+        if(index >= children.length){
+            System.out.println("We don't have so match children");
+            return;
         }
-
-        this.children = temp;
+        children[index].setFamily(null);
+        countFamily--;
+        System.out.println(index + " th child have been deleted from Family " + this);
+        this.children = decreaseHumanArr(this.children, index);
     }
 
-    public void greetPet(){
-        System.out.println("Привет, " + this.pet);
+    private Human[] increaseHumanArr(Human[] ps, Human p) {
+        Human[] increasedArr = Arrays.copyOf(ps, (ps.length + 1));
+        increasedArr[ps.length] = p;
+
+        return increasedArr;
     }
 
-    public void describePet(){
-        String trickLevel = this.pet.getTrickLevel() < (Pet.trickLevelMax / 2) ? "почти не хитрый" : "очень хитрый";
-        System.out.println("У меня есть " + this.pet.getSpecies() + ", ему " + this.pet.getAge() + " лет, он " + trickLevel);
-    }
+    private Human[] decreaseHumanArr(Human[] ps, Human p){
+        Human[] decreasedArr = new Human[ps.length - 1];
 
-    public boolean feedPet(boolean feedTime){
-        Random random = new Random();
-        int randomTrick = random.nextInt(Pet.trickLevelMax);
-        if(randomTrick < pet.getTrickLevel()){
-            System.out.println("Хм... покормлю ка я " + pet.getNickname());
-            return true;
+        for (int i = 0, k = 0; i < ps.length ; i++) {
+            if(!ps[i].equals(p)) decreasedArr[k++] = ps[i];
         }
+        return decreasedArr;
+    }
 
-        System.out.println("Думаю, " + pet.getNickname() + " не голоден.");
-        return false;
+    private Human[] decreaseHumanArr(Human[] ps, int index){
+        Human[] decreasedArr = new Human[ps.length - 1];
+
+        for (int i = 0, k = 0; i < ps.length ; i++) {
+            if(index != i) decreasedArr[k++] = ps[i];
+        }
+        return decreasedArr;
     }
 
     public Human getMother() {
@@ -91,7 +98,7 @@ public class Family {
         this.father = father;
     }
 
-    public byte getCountFamily() {
+    public int getCountFamily() {
         return countFamily;
     }
 
@@ -99,22 +106,17 @@ public class Family {
         return children;
     }
 
-    public Pet getPet() {
+    public Pet[] getPet() {
         return pet;
     }
 
-    public void setPet(Pet pet) {
+    public void setPet(Pet[] pet) {
         this.pet = pet;
     }
 
     @Override
     public String toString() {
-        return "Family {" + '\n' +
-                "\tmother=" + mother + '\n' +
-                "\tfather=" + father + '\n' +
-                "\tchildren=" + Arrays.toString(children) + '\n' +
-                "\tpet=" + pet + '\n' +
-                "}\n";
+        return MessageFormat.format("Family'{'mother={0}, father={1}, children={2}, pet={3}, countFamily={4}'}'", mother, father, Arrays.toString(children), Arrays.toString(pet), countFamily);
     }
 
     @Override
@@ -129,6 +131,12 @@ public class Family {
     @Override
     public int hashCode() {
         return Objects.hash(mother, father);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.printf("Object type %s has been removed by garbage collector%n", getClass());
     }
 }
 

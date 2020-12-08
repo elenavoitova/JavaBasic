@@ -114,13 +114,13 @@ public class Human {
     }
 
     public void describePet(){
-        String trickLevel = this.pet.getTrickLevel() < (Pet.trickLavelMax / 2) ? "почти не хитрый" : "очень хитрый";
+        String trickLevel = this.pet.getTrickLevel() < (Pet.TRICK_LEVEL_MAX / 2) ? "почти не хитрый" : "очень хитрый";
         System.out.println("У меня есть " + this.pet.getSpecies() + ", ему " + this.pet.getAge() + " лет, он " + trickLevel);
     }
 
     public boolean feedPet(boolean feedTime){
         Random random = new Random();
-        int randomTrick = random.nextInt(Pet.trickLavelMax);
+        int randomTrick = random.nextInt(Pet.TRICK_LEVEL_MAX);
         if(randomTrick < pet.getTrickLevel()){
             System.out.println("Хм... покормлю ка я " + pet.getNickname());
             return true;
