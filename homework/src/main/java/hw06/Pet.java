@@ -3,16 +3,31 @@ package hw06;
 
 import hw06.enums.Species;
 
-import java.text.MessageFormat;
 import java.util.Arrays;
 
 public abstract class Pet {
+    private Species species;
     private String nickname;
     private int age;
     private int trickLevel;
     private String[] habits;
     public static final int TRICK_LEVEL_MAX = 100;
     public static final int TRICK_LEVEL_MIN = 0;
+
+    static{
+        System.out.println("New class is loaded: " + Pet.class);
+    }
+
+    {
+        System.out.println("New Object is created: " + this.getClass());
+
+        try {
+            species = Species.valueOf(this.getClass().getSimpleName().toUpperCase());
+        } catch(IllegalArgumentException ex){
+            species = Species.UNKNOWN;
+        }
+
+    }
 
     public Pet() {
     }
@@ -46,21 +61,11 @@ public abstract class Pet {
         return lvl;
     }
 
-    static{
-        System.out.println("New class is loaded: " + Pet.class);
-    }
-
-    {
-        System.out.println("New Object is created: " + this.getClass());
-    }
-
     public void eat(){
         System.out.println("Я кушаю!");
     }
 
     public abstract void respond();
-
-    public abstract Species getSpecies();
 
     @Override
     public abstract String toString();
@@ -107,5 +112,13 @@ public abstract class Pet {
 
     public void setHabits(String[] habits) {
         this.habits = habits;
+    }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
     }
 }

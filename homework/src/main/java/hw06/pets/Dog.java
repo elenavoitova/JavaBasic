@@ -7,35 +7,32 @@ import hw06.enums.Species;
 import java.util.Objects;
 
 public class Dog extends Pet implements Troublemaker {
-    private Species species;
 
     public Dog() {
         super();
     }
 
-    public Dog(Species species, String nickname) {
+    public Dog(String nickname) {
         super(nickname);
-        this.species = species;
     }
 
-    public Dog(Species species, String nickname, int age, int trickLevel, String[] habits) {
+    public Dog(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
-        this.species = species;
     }
 
     public void foul() {
-        System.out.printf("%s: %s%n", species.getEmoji(), foulFormat);
+        System.out.printf("%s: %s%n", super.getSpecies().getEmoji(), foulFormat);
     }
 
     @Override
     public void respond() {
-        System.out.println(Pet.setRespondFormat(getNickname(), species.getEmoji()));
+        System.out.println(Pet.setRespondFormat(getNickname(), super.getSpecies().getEmoji()));
     }
 
 
     @Override
     public String toString() {
-        return Pet.setToStringFormat(species, getNickname(), getAge(), getTrickLevel(), getHabits());
+        return Pet.setToStringFormat(super.getSpecies(), getNickname(), getAge(), getTrickLevel(), getHabits());
     }
 
     @Override
@@ -43,21 +40,13 @@ public class Dog extends Pet implements Troublemaker {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Dog dog = (Dog) o;
-        return Objects.equals(species, dog.species) &&
+        return Objects.equals(super.getSpecies(), dog.getSpecies()) &&
                Objects.equals(getNickname(), dog.getNickname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(species, getNickname());
+        return Objects.hash(super.getSpecies(), getNickname());
     }
 
-    @Override
-    public Species getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(Species species) {
-        this.species = species;
-    }
 }

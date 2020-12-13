@@ -7,35 +7,35 @@ import hw06.enums.Species;
 import java.util.Objects;
 
 public class DomesticCat extends Pet implements Troublemaker {
-    private Species species;
 
     public DomesticCat() {
         super();
+        super.setSpecies(Species.CAT);
     }
 
-    public DomesticCat(Species species, String nickname) {
+    public DomesticCat(String nickname) {
         super(nickname);
-        this.species = species;
+        super.setSpecies(Species.CAT);
     }
 
-    public DomesticCat(Species species, String nickname, int age, int trickLevel, String[] habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
-        this.species = species;
+        super.setSpecies(Species.CAT);
     }
 
     @Override
     public void respond() {
-        System.out.println(Pet.setRespondFormat(getNickname(), species.getEmoji()));
+        System.out.println(Pet.setRespondFormat(getNickname(), super.getSpecies().getEmoji()));
     }
 
     @Override
     public void foul() {
-        System.out.printf("%s: %s%n", species.getEmoji(), foulFormat);
+        System.out.printf("%s: %s%n", super.getSpecies().getEmoji(), foulFormat);
     }
 
     @Override
     public String toString() {
-        return Pet.setToStringFormat(species, getNickname(), getAge(), getTrickLevel(), getHabits());
+        return Pet.setToStringFormat(super.getSpecies(), getNickname(), getAge(), getTrickLevel(), getHabits());
     }
 
     @Override
@@ -43,21 +43,12 @@ public class DomesticCat extends Pet implements Troublemaker {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DomesticCat cat = (DomesticCat) o;
-        return Objects.equals(species, cat.species) &&
+        return Objects.equals(super.getSpecies(), cat.getSpecies()) &&
                 Objects.equals(getNickname(), cat.getNickname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(species, getNickname());
-    }
-
-    @Override
-    public Species getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(Species species) {
-        this.species = species;
+        return Objects.hash(super.getSpecies(), getNickname());
     }
 }

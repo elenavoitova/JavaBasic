@@ -6,31 +6,28 @@ import hw06.enums.Species;
 import java.util.Objects;
 
 public class Fish extends Pet {
-    private Species species;
 
     public Fish() {
         super();
     }
 
-    public Fish(Species species, String nickname) {
+    public Fish(String nickname) {
         super(nickname);
-        this.species = species;
     }
 
-    public Fish(Species species, String nickname, int age, int trickLevel, String[] habits) {
+    public Fish(String nickname, int age, int trickLevel, String[] habits) {
         super(nickname, age, trickLevel, habits);
-        this.species = species;
     }
 
     @Override
     public void respond() {
-        System.out.println(Pet.setRespondFormat(getNickname(), species.getEmoji()));
+        System.out.println(Pet.setRespondFormat(getNickname(), super.getSpecies().getEmoji()));
     }
 
 
     @Override
     public String toString() {
-        return Pet.setToStringFormat(species, getNickname(), getAge(), getTrickLevel(), getHabits());
+        return Pet.setToStringFormat(super.getSpecies(), getNickname(), getAge(), getTrickLevel(), getHabits());
     }
 
     @Override
@@ -38,21 +35,12 @@ public class Fish extends Pet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Fish fish = (Fish) o;
-        return Objects.equals(species, fish.species) &&
+        return Objects.equals(super.getSpecies(), fish.getSpecies()) &&
                 Objects.equals(getNickname(), fish.getNickname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(species, getNickname());
-    }
-
-    @Override
-    public Species getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(Species species) {
-        this.species = species;
+        return Objects.hash(super.getSpecies(), getNickname());
     }
 }
