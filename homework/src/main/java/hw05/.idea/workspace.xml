@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="305210af-b3fb-47aa-9fc1-d0e6b8bf2a12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/enums/DayOfWeek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/enums/Species.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Family.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Human.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/HumanCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Pet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Troublemaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/Woman.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/enums/DayOfWeek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/enums/Species.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/pets/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/pets/DomesticCat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/pets/Fish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw06/pets/RoboCat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Dog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/DomesticCat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Family.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Fish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Human.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/HumanCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Man.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Pet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/RoboCat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Troublemaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/Woman.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/enums/DayOfWeek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hw07/enums/Species.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../test/java/hw05/FamilyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../test/java/hw7/FamilyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw01/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw02/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw03/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw04/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw06/info.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hw07/info.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1m47lj7GgkCevpRkJejF3cgUoYw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="305210af-b3fb-47aa-9fc1-d0e6b8bf2a12" name="Default Changelist" comment="" />
+      <created>1608741161696</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608741161696</updated>
+    </task>
+    <servers />
+  </component>
+</project>
